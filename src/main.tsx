@@ -10,11 +10,6 @@ interface Position {
   y: number;
 }
 
-interface MiniQRProps {
-  text: string;
-  size?: number;
-}
-
 interface StarProps {
   dim?: boolean;
 }
