@@ -96,11 +96,11 @@ const Tag: FC<TagProps> = ({ variant = "purple", children }) => {
     <span
       style={{
         fontFamily: "'Rajdhani', sans-serif",
-        fontSize: 11,
+        fontSize: 9,
         fontWeight: 600,
-        letterSpacing: ".06em",
-        padding: "3px 9px",
-        borderRadius: 20,
+        letterSpacing: ".04em",
+        padding: "2px 6px",
+        borderRadius: 12,
         border: `1px solid ${border}`,
         color,
         whiteSpace: "nowrap",
@@ -151,19 +151,36 @@ const GeoBg: FC = () => (
 /* ─── Data ─── */
 
 const TAGS: TagEntry[] = [
+  // Backend & Frameworks
   { variant: "blue",   label: "Spring Boot" },
-  { variant: "coral",  label: "Java JEE" },
-  { variant: "blue",   label: ".NET Core" },
-  { variant: "purple", label: "Laravel" },
+  { variant: "blue",   label: "Java" },
   { variant: "blue",   label: "React.js" },
-  { variant: "amber",  label: "CI/CD" },
-  { variant: "purple", label: "REST API" },
+  { variant: "purple", label: "Laravel" },
+  
+  // Architecture & API
+  { variant: "blue",   label: "API REST" },
+  { variant: "blue",   label: "Systèmes distribués" },
+  
+  // Bases de données
   { variant: "teal",   label: "MySQL" },
+  { variant: "teal",   label: "Oracle" },
+  
+  // DevOps & Cloud
+  { variant: "coral",  label: "Docker" },
+  { variant: "coral",  label: "CI/CD" },
+  { variant: "coral",  label: "AWS EC2" },
+  
+  // Tests & Qualité
   { variant: "amber",  label: "TDD" },
-  { variant: "teal",   label: "AWS EC2" },
-  { variant: "pink",   label: "Agile SCRUM"},
-  { variant: "blue",   label: "Postman"},
-  { variant: "coral",   label: "Docker" },
+  { variant: "amber",  label: "JUnit 5" },
+  
+  // Méthodologie & Design
+  { variant: "purple", label: "Agile SCRUM" },
+  { variant: "purple", label: "Clean Architecture" },
+  
+  // Outils
+  { variant: "blue",   label: "Git" },
+  { variant: "blue",   label: "Postman" },
 ];
 
 const STATS: StatCell[] = [
