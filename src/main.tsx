@@ -41,7 +41,7 @@ interface Project {
   color: string;
   bg: string;
   name: string;
-  desc: string;
+  desc: String[];
   tag: string;
 }
 
@@ -63,7 +63,7 @@ interface ColorDef {
   border: string;
 }
 
-const numeroGitex = "#GITEX-2026-04-07";
+const numeroGitex = "#CODING-2026_15";
 
 /* ─── Star ─── */
 
@@ -175,8 +175,8 @@ const STATS: StatCell[] = [
 
 const PROJECTS: Project[] = [
   //{ color: "#ff60b0", bg: "rgba(255,80,160,0.15)",  name: "MentorMatch",    desc: "Plateforme mentor/mentee · Next.js + Laravel + MySQL", tag: "Startup · En cours" },
-  { color: "#40c0ff", bg: "rgba(60,180,255,0.15)",  name: "Ges'Stock",      desc: "Application web de gestion des stocks entrepôt · React + SprintBoot + MySQL", tag: "Startup · En cours" },
-  { color: "#40e0b0", bg: "rgba(60,200,160,0.15)",  name: "ChriOnline", desc: "Application desktop d'e-commerce · Java Tcp Sockets + MySQL + PostgreSQL",  tag: "FullStack · MVP" },
+  { color: "#40c0ff", bg: "rgba(60,180,255,0.15)",  name: "Ges'Stock",      desc: ["Plateforme web de gestion de stocks · Spring Boot + React + MySQL", "Architecture conteneurisée avec Docker", "Gestion centralisée des commandes et inventaires", "Déploiement sur environnement cloud"], tag: "Startup · En cours" },
+  { color: "#40e0b0", bg: "rgba(60,200,160,0.15)",  name: "ChriOnline", desc: ["Plateforme desktop d'e-commerce · Java + TCP Sockets", "Base de données MySQL et PostgreSQL", "Gestion complète des transactions et utilisateurs"],  tag: "FullStack · MVP" },
 ];
 
 const TIMELINE: TimelineEntry[] = [
@@ -353,15 +353,16 @@ const Front: FC<FrontProps> = ({ holoPos, shinePos }) => (
         <div
           style={{
             fontFamily: "'Rajdhani',sans-serif",
-            fontSize: 11,
+            fontSize: 8,
             fontWeight: 500,
-            letterSpacing: ".15em",
+            letterSpacing: ".1em",
             color: "rgba(180,140,255,0.7)",
             textTransform: "uppercase",
-            marginTop: 4,
+            marginTop: 3,
+            lineHeight: 1.1,
           }}
         >
-          IT Engineer · DevOps · Founder
+          IT Engineer | Architectures & API | DevOps
         </div>
         <div
           style={{
@@ -640,18 +641,7 @@ const Back: FC = () => (
           marginBottom: 8,
         }}
       >
-        Passionnée par la création et la fiabilité de solutions numériques qui transforment les défis en opportunités.{" "}
-        <strong style={{ fontStyle: "normal", color: "#c8a0ff", fontWeight: 700 }}>
-          Merveille T.
-        </strong>{" "}
-        
-        identifie les frictions du marché 
-        — gestion logistique complexe,
-        — processus métier inefficaces, 
-        — manque de solutions adaptées
-        — et construit des systèmes qui les éliminent.
-        
-        Backend solide, architecture scalable, impact client au premier plan.
+        Étudiante en ingénierie informatique, je m’intéresse aux architectures distribuées, à l’intégration de services et à l’industrialisation des systèmes via des pratiques DevOps. J’ai développé plusieurs projets incluant des environnements conteneurisés et des applications full-stack.
       </p>
 
       {/* Projects */}
@@ -663,15 +653,15 @@ const Back: FC = () => (
             style={{
               display: "flex",
               alignItems: "flex-start",
-              gap: 9,
+              gap: 5,
               padding: "6px 0",
               borderBottom: "1px solid rgba(160,100,255,0.07)",
             }}
           >
             <div
               style={{
-                width: 8,
-                height: 8,
+                width: 5,
+                height: 5,
                 transform: "rotate(45deg)",
                 border: `1.5px solid ${color}`,
                 background: bg,
@@ -683,32 +673,36 @@ const Back: FC = () => (
               <div
                 style={{
                   fontFamily: "'Rajdhani',sans-serif",
-                  fontSize: 12,
+                  fontSize: 10,
                   fontWeight: 700,
                   color: "rgba(245,235,255,0.85)",
-                  letterSpacing: ".03em",
+                  letterSpacing: ".02em",
                 }}
               >
                 {name}
               </div>
-              <div
-                style={{
-                  fontFamily: "'Rajdhani',sans-serif",
-                  fontSize: 10,
-                  color: "rgba(180,150,255,0.45)",
-                  marginTop: 1,
-                  lineHeight: 1.4,
-                }}
-              >
-                {desc}
-              </div>
-              <div
+              <ul
                 style={{
                   fontFamily: "'Rajdhani',sans-serif",
                   fontSize: 9,
-                  fontWeight: 600,
+                  color: "rgba(180,150,255,0.45)",
+                  lineHeight: 1.25,
+                  margin: "3px 0",
+                  paddingLeft: 12,
+                }}
+              >
+                {desc.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+              <div
+                style={{
+                  fontFamily: "'Rajdhani',sans-serif",
+                  fontSize: 7,
+                  fontWeight: 500,
                   color: "rgba(160,100,255,0.5)",
-                  letterSpacing: ".06em",
+                  letterSpacing: ".05em",
+                  marginTop: 2,
                 }}
               >
                 {tag}
